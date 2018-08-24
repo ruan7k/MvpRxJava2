@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -9,6 +10,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
     }
     buildTypes {
         release {
@@ -19,10 +27,29 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0-rc01'
+    implementation 'com.android.support:recyclerview-v7:28.0.0-rc01'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //第三方
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+    implementation "com.google.dagger:dagger:$rootProject.dagger2Version"
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$rootProject.recyclerviewhelperVersion"
+    implementation "com.jakewharton:butterknife:$rootProject.butterknifeversion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeversion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.convertergsonversion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.adapterrxjava2version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttplogversion"
+
+    implementation "com.alibaba:arouter-api:$rootProject.arouteapiversion"
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.aroutecompilerversion"
+
+    implementation "com.jakewharton.timber:timber:$rootProject.timberversion"
 }

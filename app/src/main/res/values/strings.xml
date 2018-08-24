@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">MvpRxJava2</string>
+
+
+    <string-array name="title_list">
+        <item>mvp-rxjava2-retrofit-dagger2</item>
+        <item>mvvm-databinding</item>
+    </string-array>
 </resources>
