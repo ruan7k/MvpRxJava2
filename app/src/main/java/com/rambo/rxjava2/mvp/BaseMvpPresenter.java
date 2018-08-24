@@ -47,11 +47,10 @@ public class BaseMvpPresenter<V extends BaseView> implements BasePresenter<V> {
         this.baseView = view;
     }
 
-
     private void removeDisposable() {
         for (int i = 0; i < disposableList.size(); i++) {
             disposableList.get(i).dispose();
-            Timber.d(TAG, "Disposable:" + disposableList.get(i).isDisposed());
+            Timber.d("detachView=>" + disposableList.get(i).isDisposed());
         }
     }
 

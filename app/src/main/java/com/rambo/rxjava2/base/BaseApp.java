@@ -47,8 +47,9 @@ public class BaseApp extends Application {
 
 
     private void initTimber(){
+        Timber.plant(new Timber.DebugTree());
         if (BuildConfig.DEBUG) {
-            Timber.plant(new Timber.DebugTree());
+
         } else {
             //Timber.plant(new CrashReportingTree());
         }
