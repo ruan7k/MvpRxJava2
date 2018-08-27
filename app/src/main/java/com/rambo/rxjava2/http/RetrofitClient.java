@@ -70,9 +70,7 @@ public class RetrofitClient {
                 .hostnameVerifier(new HostnameVerifier() {
                     @Override
                     public boolean verify(String hostname, SSLSession session) {
-                        //Log.e(TAG,hostname);
-                        //return true;
-                        //return hostname.equals("api.zallsoon.com");
+
                         return true;
                     }
                 })
