@@ -45,9 +45,9 @@ public class NovelPresenter<V extends NovelMvpView> extends BaseMvpPresenter<V>
                     }
 
                     @Override
-                    public void onFail(BaseDataResult<List<NovelBean>> response, String message) {
+                    public void onFail(int code, String errorMessage) {
                         getBaseView().hideLoading();
-                        getBaseView().showFaild(message);
+                        getBaseView().showFaild(errorMessage);
                     }
                 });
     }
