@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity {
                         ARouter.getInstance().build("/rambo/novellist").navigation();
                         break;
                     case 1:
+                        ARouter.getInstance().build("/rambo/weatherlist").navigation();
                         break;
                 }
             }

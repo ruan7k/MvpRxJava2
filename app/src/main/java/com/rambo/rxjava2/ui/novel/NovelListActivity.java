@@ -21,6 +21,13 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * 小说页面  mvp 模式
+ *
+ * @author rambo
+ * @version 1.0 2018-08-29
+ * @since JDK 1.8
+ */
 @Route(path = "/rambo/novellist")
 public class NovelListActivity extends BaseActivity implements NovelMvpView{
 

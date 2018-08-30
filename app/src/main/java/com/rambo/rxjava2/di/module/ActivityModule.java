@@ -15,6 +15,7 @@ import com.rambo.rxjava2.ui.entity.NovelBean;
 import com.rambo.rxjava2.ui.novel.NovelMvpPresenter;
 import com.rambo.rxjava2.ui.novel.NovelMvpView;
 import com.rambo.rxjava2.ui.novel.NovelPresenter;
+import com.rambo.rxjava2.ui.weather.WeatherListViewModle;
 
 import java.sql.Array;
 import java.util.Arrays;
@@ -63,6 +64,13 @@ public class ActivityModule {
     NovelMvpPresenter<NovelMvpView> provideNovelMvpPresenter(NovelPresenter<NovelMvpView> presenter) {
         return presenter;
     }
+
+
+    @Provides
+    WeatherListViewModle provideWeatherListViewModle(ApiService apiService,BaseActivity mActivity) {
+        return new WeatherListViewModle(mActivity,apiService);
+    }
+
 
 
 }
