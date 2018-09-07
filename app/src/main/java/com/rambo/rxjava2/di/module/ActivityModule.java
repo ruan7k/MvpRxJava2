@@ -6,6 +6,7 @@ import android.content.Context;
 
 import com.rambo.rxjava2.R;
 import com.rambo.rxjava2.base.BaseActivity;
+import com.rambo.rxjava2.databinding.ActivityWeatherListBinding;
 import com.rambo.rxjava2.di.ActivityContext;
 import com.rambo.rxjava2.http.ApiService;
 import com.rambo.rxjava2.http.RetrofitClient;
@@ -66,10 +67,11 @@ public class ActivityModule {
     }
 
 
-    @Provides
-    WeatherListViewModle provideWeatherListViewModle(ApiService apiService,BaseActivity mActivity) {
-        return new WeatherListViewModle(mActivity,apiService);
-    }
+//    @Provides
+//    WeatherListViewModle provideWeatherListViewModle(ApiService apiService,BaseActivity mActivity) {
+//        return new WeatherListViewModle(mActivity,apiService);
+//    }
+
 
 
 

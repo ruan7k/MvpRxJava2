@@ -1,5 +1,6 @@
 package com.rambo.rxjava2.ui.weather;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import com.rambo.rxjava2.BR;
 import com.rambo.rxjava2.R;
 import com.rambo.rxjava2.base.BaseActivity;
 import com.rambo.rxjava2.databinding.ActivityWeatherListBinding;
+import com.rambo.rxjava2.di.ActivityContext;
 import com.rambo.rxjava2.http.ApiService;
 
 import javax.inject.Inject;
@@ -32,8 +34,16 @@ public class WeatherListActivity extends BaseActivity {
 
     ActivityWeatherListBinding viewDataBinding;
 
-    @Inject
+
     WeatherListViewModle viewModel;
+
+
+    @Inject
+    ApiService apiService;
+
+    @Inject
+    @ActivityContext
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +51,8 @@ public class WeatherListActivity extends BaseActivity {
         getDaggerActivityComponent().inject(this);
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_weather_list);
         setUnBinder(ButterKnife.bind(this));
-        viewDataBinding.setVariable(BR.viewModel, viewModel);
+        viewModel=new WeatherListViewModle(context,apiService,viewDataBinding);
+       // viewDataBinding.setVariable(BR.viewModel, viewModel);
         viewModel.requestData();
     }
 

@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.rambo.rxjava2.BR;
+import com.rambo.rxjava2.databinding.ActivityWeatherListBinding;
 import com.rambo.rxjava2.di.ActivityContext;
 import com.rambo.rxjava2.http.ApiService;
 import com.rambo.rxjava2.http.BaseDataResult;
@@ -33,10 +34,13 @@ public class WeatherListViewModle {
 
     public WeatherBean weatherBean;
 
+    ViewDataBinding binding;
 
-    public WeatherListViewModle(Context context, ApiService api) {
+
+    public WeatherListViewModle(Context context, ApiService api,ViewDataBinding viewDataBinding) {
         this.activityContext = context;
         this.service = api;
+        this.binding=viewDataBinding;
     }
 
     public void requestData() {
@@ -53,6 +57,7 @@ public class WeatherListViewModle {
                     public void onNext(BaseDataResult<WeatherBean> listBaseDataResult) {
                         weatherBean = listBaseDataResult.getData();
 
+                        binding.setVariable(BR.viewModel,this);
                     }
 
                     @Override

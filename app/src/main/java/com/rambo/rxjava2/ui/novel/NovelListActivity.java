@@ -89,7 +89,10 @@ public class NovelListActivity extends BaseActivity implements NovelMvpView{
 
     @Override
     public void loadDataSucceed(List<NovelBean> list) {
+
         novelAdapter.setNewData(list);
+        novelAdapter.addData(list);
+        novelAdapter.addData(list);
     }
 
 
